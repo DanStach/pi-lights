@@ -79,7 +79,7 @@ class LedStrip:
         self.set_led(red, blue, green, ALL)
         time.sleep(0.5)
         self.clr_led(ALL)
-        time.sleep(0.5)
+        time.sleep(0.5)cd
 
 def main():
     myStrip = LedStrip(SIZE)
