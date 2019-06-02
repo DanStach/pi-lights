@@ -8,7 +8,7 @@ import collections
 # Instantiate SPI device
 spi = spidev.SpiDev()
 spi.open(0, 0)
-spi.max_speed_hz = 40000000 #2019-05-30 Note: maxspeed that works on RPI3b max_speed_hz = 40000000
+spi.max_speed_hz = 4000000 #2019-05-30 Note: maxspeed that works on RPI3b max_speed_hz = 4000000
 SIZE = 32
 ALL = -1
 buf = [] 
@@ -79,19 +79,19 @@ class LedStrip:
         self.set_led(red, blue, green, ALL)
         time.sleep(0.5)
         self.clr_led(ALL)
-        time.sleep(0.5)cd
-
+        
 def main():
     myStrip = LedStrip(SIZE)
     myStrip.init_strip()
     myStrip.clr_leds_all()
-    myStrip.set_leds_all(1,0,0) #red
+    myStrip.set_leds_all(127,0,0) #red
     time.sleep(1)
-    myStrip.set_leds_all(0,1,0) #green
+    myStrip.set_leds_all(0,127,0) #green
     time.sleep(1)
-    myStrip.set_leds_all(0,0,1) #blue
+    myStrip.set_leds_all(0,0,127) #blue
     time.sleep(1)
-    myStrip.set_leds_all(1,1,1) #white
+    myStrip.set_leds_all(127,127,127) #white
+    myStrip.clr_leds_all()
     time.sleep(1)
 
 if __name__ == "__main__":
