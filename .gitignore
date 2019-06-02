@@ -1,1 +1,3 @@
 .vscode/settings.json
+.mypy_cache/
+lpd8806.code-workspace
